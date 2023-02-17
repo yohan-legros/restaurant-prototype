@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #001c2a;
+}
+
+header{
+    height: 100vh;
+    background:linear-gradient(130deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) 60%, transparent 80%, transparent), url(/img/head.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    width: 100%;
+}
+#menug{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#menug li {
+    padding: 30px 20px;
+}
+#menug li a {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-decoration: none;
+    color: #ffff;
+}
+#menug li a:hover{
+    color:wheat;
+    font-weight: bold;
+}
+.intro{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50% ,-50%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    z-index: 1;
+
+}
+.intro h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: wheat;
+}
+.intro p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 30px;
+}
+.intro button{
+    width: 30%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border-radius: 20px;
+    color: white;
+}
+.intro button:hover{
+    background-color: sandybrown;
+}
+/*-----------------------menu mobile-----------------------*/
+.menumobile{
+    display: none;
+    z-index: 99;
+}
+.wrapper{
+    position: fixed;
+    top: 0;
+    /*left: -100%;*/
+    right: -100%;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
+    /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+   /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
+    transition: all 0.6s ease-in-out;
+    z-index: 10;
+  }
+  #active:checked ~ .wrapper{
+    /*left: 0;*/
+    right:0;
+  }
+  .menu-btn{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    /*left: 20px; */
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 99;
+    /*background: linear-gradient(90deg, #f92c78, #4114a1);*/
+    /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+   /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
+    transition: all 0.3s ease-in-out;
+  }
+  .menu-btn span,
+  .menu-btn:before,
+  .menu-btn:after{
+      content: "";
+      position: absolute;
+      top: calc(50% - 1px);
+      left: 30%;
+      width: 40%;
+      border-bottom: 2px solid #fff;
+      transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+      z-index: 99;
+  }
+  .menu-btn:before{
+    transform: translateY(-8px);
+  }
+  .menu-btn:after{
+    transform: translateY(8px);
+  }
+  
+  
+  .close {
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      transition: background .6s;
+  }
+  
+  /* closing animation */
+  #active:checked + .menu-btn span {
+      transform: scaleX(0);
+  }
+  #active:checked + .menu-btn:before {
+      transform: rotate(45deg);
+    border-color: #fff;
+  }
+  #active:checked + .menu-btn:after {
+      transform: rotate(-45deg);
+    border-color: #fff;
+  }
+  .wrapper ul{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  .wrapper ul li{
+    height: 10%;
+    margin: 15px 0;
+  }
+  .wrapper ul li a{
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 5px 30px;
+    color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    line-height: 50px;
+    margin: 5px 30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .wrapper ul li a:after{
+    position: absolute;
+    content: "";
+    background:wheat;
+     /*background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);*/
+    /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 50px;
+    transform: scaleY(0);
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  .wrapper ul li a:hover:after{
+    transform: scaleY(1);
+  }
+  .wrapper ul li a:hover{
+    color: #000;
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-align: center;
+    width: 100%;
+    color: #202020;
+  }
+  .content .title{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .content p{
+    font-size: 35px;
+    font-weight: 600;
+  }
+  
+  #active:checked ~ .wrapper ul li a{
+    opacity: 1;
+  }
+  .wrapper ul li a{
+    transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateX(100px);
+  }
+  #active:checked ~ .wrapper ul li a{
+      transform: none;
+      transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1); /* easeOutBackを緩めた感じ */
+     transition-delay: .6s;
+    transform: translateX(-100px);
+  }
+/*-----------------------fin menu mobile-----------------------*/ 
+
+#Notremenu{
+    color: white;
+    text-align: center;
+}
+#Notremenu p{
+    padding: 2%;
+}
+#Notremenu h2{
+    padding: 5% 0 0 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: wheat;
+    font-style: italic;
+}
+.menuplat{
+    width: 100%;
+    display: flex;
+    padding: 5% 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.plat{
+    width: 20%;
+    background-color: #000;
+    border-radius: 30px;
+}
+.plat img{
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+}
+.plat h3{
+  color: wheat;
+  font-size: 1em;
+  
+}
+.plat p{
+  font-size: 0.8em;
+}
+.plat button{
+  background-color: transparent;
+  border: 1px solid wheat;
+  padding: 3%;
+  border-radius: 10px;
+}
+.plat button:hover{
+  background-color: sandybrown;
+}
+.plat button a{
+  text-decoration: none;
+  color: white;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+#pop{
+  padding: 10%;
+}
+footer{
+  height: 20vh;
+  background-color: #000;
+  color: white;
+  text-align: center;
+}
+footer h2{
+  padding: 30px;
+}
+@media (max-width: 768px){
+.menumobile{
+    display: block;
+}
+#menug{
+    display: none;
+}
+.intro button{
+    width: 50%;
+}
+.intro{
+    width: 100%;
+}
+.menuplat{
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.plat {
+  width: 50%;
+}
+}
